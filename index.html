@@ -381,3 +381,290 @@
       color: var(--cyan);
       border: 1px solid rgba(0, 243, 255, 0.4);
     }
+
+    .quest-card.unlocked .quest-status {
+      color: var(--green);
+      text-shadow: 0 0 8px var(--green);
+    }
+
+    .quest-card.unlocked::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+      transition: height 0.3s ease;
+    }
+
+    /* Unlocked Card Hover Effects */
+    .quest-card.unlocked:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: var(--cyan);
+      box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3), inset 0 0 15px rgba(0, 243, 255, 0.1);
+    }
+
+    .quest-card.unlocked:hover .quest-title {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.8);
+    }
+
+    .quest-card.unlocked:nth-child(2) {
+      border-color: rgba(255, 0, 85, 0.4);
+    }
+    .quest-card.unlocked:nth-child(2)::before {
+      background: var(--pink);
+      box-shadow: 0 0 10px var(--pink);
+    }
+    .quest-card.unlocked:nth-child(2) .quest-week {
+      background: rgba(255, 0, 85, 0.15);
+      color: var(--pink);
+      border-color: rgba(255, 0, 85, 0.4);
+    }
+    .quest-card.unlocked:nth-child(2):hover {
+      border-color: var(--pink);
+      box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3), inset 0 0 15px rgba(255, 0, 85, 0.1);
+    }
+
+    .quest-card.locked {
+      background: var(--card-locked);
+      border-color: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    .quest-card.locked .quest-week {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+
+    .quest-card.locked .quest-status {
+      color: #ef4444;
+    }
+
+    .quest-card.locked .quest-title {
+      color: #64748b;
+    }
+
+    .quest-card.locked:hover {
+      border-color: rgba(239, 68, 68, 0.5);
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+      animation: shake 0.3s ease-in-out;
+      opacity: 0.9;
+    }
+
+    .quest-card.locked:hover .quest-status {
+      text-shadow: 0 0 8px #ef4444;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-4px); }
+      40% { transform: translateX(4px); }
+      60% { transform: translateX(-2px); }
+      80% { transform: translateX(2px); }
+    }
+
+    /* Footer Credits */
+    footer {
+      margin-top: 4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dynamic Cyber Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <div class="container">
+    
+    <header class="profile-card">
+      <div class="avatar-wrapper">
+        <div class="avatar-ring"></div>
+        <img class="avatar-img" src="https://i.postimg.cc/2ShxBLxP/IMG-2188.avif" alt="Player Avatar" id="playerAvatar">
+      </div>
+
+      <div class="player-tag">
+        <span>ONLINE</span> // CLASS: WEB DEV NOVICE
+      </div>
+
+      <h1 class="player-name">歐停藥</h1>
+
+      <!-- EXP / Level Progress Bar -->
+      <div class="stats-bar">
+        <div class="stats-info">
+          <span class="stats-level">LVL. 03 / 16</span>
+          <span class="stats-exp">EXP: 18.75%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <main style="width: 100%;">
+      <h2 class="section-title">MISSION MAP // 16 WEEKS</h2>
+
+      <div class="quest-grid">
+        
+        <!-- WEEK 1 (Unlocked) -->
+        <a href="w1/index.html" class="quest-card unlocked">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 01</span>
+            <span class="quest-status">✓ UNLOCKED</span>
+          </div>
+          <div class="quest-title">Week 1 - 數位名片</div>
+        </a>
+
+        <!-- WEEK 2 (Unlocked) -->
+        <a href="w2/index.html" class="quest-card unlocked">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 02</span>
+            <span class="quest-status">✓ UNLOCKED</span>
+          </div>
+          <div class="quest-title">Week 2 - 今天吃甚麼?</div>
+        </a>
+
+        <!-- WEEK 3 (Unlocked) -->
+        <a href="w3/index.html" class="quest-card unlocked">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 03</span>
+            <span class="quest-status">✓ UNLOCKED</span>
+          </div>
+          <div class="quest-title">Week 3 - 迷因產生器</div>
+        </a>
+
+        <!-- WEEK 4 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 04</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 4 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 5 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 05</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 5 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 6 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 06</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 6 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 7 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 07</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 7 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 8 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 08</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 8 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 9 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 09</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 9 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 10 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 10</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 10 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 11 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 11</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 11 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 12 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 12</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 12 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 13 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 13</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 13 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 14 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 14</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 14 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 15 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 15</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 15 - 未解鎖任務</div>
+        </a>
+
+        <!-- WEEK 16 (Locked) -->
+        <a href="#" class="quest-card locked" onclick="event.preventDefault();">
+          <div class="quest-header">
+            <span class="quest-week">STAGE 16</span>
+            <span class="quest-status">🔒 LOCKED</span>
+          </div>
+          <div class="quest-title">Week 16 - 未解鎖任務</div>
+        </a>
+
+      </div>
+    </main>
+
+    <footer>
+      &copy; 2026 PLAYER 1 // WEB PROGRAMMING COURSE PORTAL
+    </footer>
+
+  </div>
+
+</body>
+</html>
+
